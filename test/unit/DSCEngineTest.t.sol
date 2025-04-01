@@ -36,7 +36,7 @@ contract DSCEngineTest is Test {
     function testGetUsdValue() public view {
         uint256 ethAmount = 15e18;
         // 15e18 * 2000 / ETH = 30,000e18
-        uint256 expectedUsd = 30000e18;
+        uint256 expectedUsd = 30000e18; // works only for anvil since the price is constant, but that is not the case for sepolia
         uint256 actualUsd = dsce.getUsdValue(weth, ethAmount);
 
         assertEq(expectedUsd, actualUsd);
